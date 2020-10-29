@@ -16,6 +16,7 @@ const NavBarStyled = styled.header`
   padding: 20px;
   background-color: #299B01;
   color: white;
+  z-index: 2;
 `;
 
 const Logo = styled.div`
