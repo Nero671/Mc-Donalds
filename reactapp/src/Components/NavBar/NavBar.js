@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import logoImg from '../image/logo.svg';
-import loginImg from '../image/sign.svg';
+import logoImg from '../../image/logo.svg';
+import loginImg from '../../image/sign.svg';
 
 const NavBarStyled = styled.header`
   position: fixed;
@@ -12,7 +12,7 @@ const NavBarStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  width: 100vw;
+  width: 100%;
   padding: 20px;
   background-color: #299B01;
   color: white;
