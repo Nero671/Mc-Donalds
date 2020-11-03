@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
   img {
     max-width: 100%;
-    heigh: auto;
+    height: auto;
   }
 
   a {
@@ -45,6 +45,23 @@ const GlobalStyle = createGlobalStyle`
   p {
     padding: 0;
     margin: 0;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input, button {
+    font: inherit;
+  }
+
+  input[type='number'] {
+  -moz-appearance: textfield;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 `;
 
