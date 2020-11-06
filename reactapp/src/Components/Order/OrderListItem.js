@@ -39,17 +39,17 @@ const Topping = styled.div`
   width: 100%;
 `;
 
-const OrderListItem = ({ order }) => {
+const OrderListItem = ({ order, index, deleteItem }) => {
 
   const toppings = order.topping.filter(item => item.checked === true);
 
   return (
     <>
       <OrderItemStyled>
-        <ItemName>{order.name}</ItemName>
+        <ItemName>{order.name} {order.choice}</ItemName>
         <span>{order.count}</span>
         <ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
-        <TrashButton/>
+        <TrashButton onClick={() => deleteItem(index)}/>
       </OrderItemStyled>
       {toppings.length !== 0 && toppings.map((item, i) => <Topping key={i}>{item.name}</Topping>)}
     </>

@@ -15,6 +15,11 @@ const Button = styled.button`
     background-color: transparent;
     color: #299B01;
   }
+  &:disabled {
+    color: #bbb;
+    background-color: #ccc;
+    border-color: #aaa;
+  }
 `;
 
 export default Button;
