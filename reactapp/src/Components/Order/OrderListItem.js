@@ -20,6 +20,7 @@ const OrderItemStyled = styled.li`
   display: flex;
   margin: 15px 0;
   flex-wrapr: wrpa;
+  cursor: pointer;
 `;
 
 const ItemName = styled.span`
@@ -37,19 +38,23 @@ const Topping = styled.div`
   color: #9A9A9A;
   font-size: 14px;
   width: 100%;
+  cursor: pointer;
+  margin-right: 5px;
 `;
 
-const OrderListItem = ({ order, index, deleteItem }) => {
+const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
 
   const toppings = order.topping.filter(item => item.checked === true);
 
+  const refDeleteButton = React.useRef(null);
+
   return (
     <>
-      <OrderItemStyled>
+      <OrderItemStyled onClick={(e) => e.target !== refDeleteButton.current && setOpenItem({...order, index})}>
         <ItemName>{order.name} {order.choice}</ItemName>
         <span>{order.count}</span>
         <ItemPrice>{formatCurrency(totalPriceItems(order))}</ItemPrice>
-        <TrashButton onClick={() => deleteItem(index)}/>
+        <TrashButton ref={refDeleteButton} onClick={() => deleteItem(index)}/>
       </OrderItemStyled>
       {toppings.length !== 0 && toppings.map((item, i) => <Topping key={i}>{item.name}</Topping>)}
     </>

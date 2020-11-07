@@ -52,7 +52,7 @@ const EmptyList = styled.p`
 `;
 
 
-const Order = ({ orders, setOrders }) => {
+const Order = ({ orders, setOrders, setOpenItem }) => {
 
   const deleteItem = index => {
     const newOrder = [...orders];
@@ -75,6 +75,7 @@ const Order = ({ orders, setOrders }) => {
                   order={order} 
                   deleteItem={deleteItem} 
                   index={index}
+                  setOpenItem={setOpenItem}
           />)}
         </OrderList> : 
         <EmptyList>Список заказов пуст</EmptyList>}
