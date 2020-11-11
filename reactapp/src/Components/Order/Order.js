@@ -72,6 +72,7 @@ const Order = ({ orders, setOrders, setOpenItem, authentification, logIn, fireba
       email: authentification.email,
       order: newOrder
     });
+    setOrders([]);
   }
 
   const deleteItem = index => {
