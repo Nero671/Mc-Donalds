@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import trashImage from '../../image/trash.svg';
 import { totalPriceItems } from '../Functions/secondaryFunctions';
 import { formatCurrency } from '../Functions/secondaryFunctions';
+import { Context } from '../Functions/context';
+
 
 const TrashButton = styled.button`
   width: 24px;
@@ -42,7 +44,9 @@ const Topping = styled.div`
   margin-right: 5px;
 `;
 
-const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
+const OrderListItem = ({ order, index, deleteItem }) => {
+
+  const { openItem: { setOpenItem } } = useContext(Context);
 
   const toppings = order.topping.filter(item => item.checked === true);
 

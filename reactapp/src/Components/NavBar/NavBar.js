@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import logoImg from '../../image/logo.svg';
 import loginImg from '../../image/sign.svg';
+import { Context } from "../Functions/context";
 
 const NavBarStyled = styled.header`
   position: fixed;
@@ -63,29 +64,34 @@ const Figure = styled.figure`
 `;
 
 
-const NavBar = ({ authentification, logIn, logOut }) => (
-  <NavBarStyled>
-    <Logo>
-      <ImgLogo src={logoImg} alt="logo"/>
-      <H1>MRDonald’s</H1>
-    </Logo>
-    {authentification ? 
-    <User>
-      <Figure>
-        <img src={loginImg} alt={authentification.displayName}/>
-        <figcaption>{authentification.displayName}</figcaption>
-      </Figure>
-      <LogOut title="Выйти" onClick={logOut}>X</LogOut>
-    </User> : 
-    <Login onClick={logIn}>
-      <Figure>
-        <img src={loginImg} alt="login"/>
-        <figcaption>Войти</figcaption>
-      </Figure>
-    </Login>
-    
-    }
-  </NavBarStyled>
-);
+const NavBar = () => {
+
+  const {auth: { authentification, logIn, logOut } } = useContext(Context);
+
+  return (
+    <NavBarStyled>
+      <Logo>
+        <ImgLogo src={logoImg} alt="logo"/>
+        <H1>MRDonald’s</H1>
+      </Logo>
+      {authentification ? 
+      <User>
+        <Figure>
+          <img src={loginImg} alt={authentification.displayName}/>
+          <figcaption>{authentification.displayName}</figcaption>
+        </Figure>
+        <LogOut title="Выйти" onClick={logOut}>X</LogOut>
+      </User> : 
+      <Login onClick={logIn}>
+        <Figure>
+          <img src={loginImg} alt="login"/>
+          <figcaption>Войти</figcaption>
+        </Figure>
+      </Login>
+      
+      }
+    </NavBarStyled>
+  )
+};
 
 export default NavBar;

@@ -42,7 +42,7 @@ const SkRotatingPlane = styled.div`
 `;
 
 
-const Menu = ({ setOpenItem }) => {
+const Menu = () => {
 
   const res = useFetch();
   const dbMenu = res.response;
@@ -58,7 +58,6 @@ const Menu = ({ setOpenItem }) => {
           </h2>
           <ListItem 
             itemList={dbMenu.burger}
-            setOpenItem={setOpenItem}
           />
         </SectionMenu>
 
@@ -68,7 +67,6 @@ const Menu = ({ setOpenItem }) => {
           </h2>
           <ListItem 
             itemList={dbMenu.other}
-            setOpenItem={setOpenItem}
           /> 
         </SectionMenu>
       </> : res.error ? 
